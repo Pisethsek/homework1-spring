@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{layouts/master-layout}">
+<head>
+  <meta charset="UTF-8">
+  <title>CategoryForm</title>
+</head>
+<body>
+  <main layout:fragment="content">
+
+    <form th:action="${isEdit} ? '/category/edit/' + *{id} : '/category/add' " th:object="${category}" method="post">
+<!--      <label for="id">Id :</label><br>-->
+<!--      <input th:field="*{id}" type="text" id="id"><br>-->
+
+      <label for="name">Name :</label><br>
+      <input th:field="*{name}" type="text" id="name"><br>
+
+      <input type="submit" value="Submit">
+      </form>
+  </main>
+</body>
+</html>

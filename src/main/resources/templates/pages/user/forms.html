@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{layouts/master-layout}">
+<head>
+  <meta charset="UTF-8">
+  <title>UserForm</title>
+</head>
+<body>
+
+  <main layout:fragment="content">
+
+    <form th:action="${isEdit} ? '/user/edit/' + *{id} : '/user/add' " th:object="${user}" method="post">
+      <label for="username">Username :</label><br>
+      <input th:field="*{username}" type="text" id="username"><br>
+
+      <label for="name">Bio :</label><br>
+      <input th:field="*{bio}" type="text" id="name"><br>
+
+      <input type="submit" value="Submit">
+    </form>
+
+  </main>
+
+</body>
+</html>

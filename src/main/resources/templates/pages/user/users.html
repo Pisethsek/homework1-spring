@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{layouts/master-layout}">
+<head>
+  <meta charset="UTF-8">
+  <title>Users</title>
+</head>
+<body>
+
+  <main layout:fragment="content">
+    <div>
+      <a th:href="@{/user/add}">
+        Add New User
+      </a>
+    </div>
+
+    <table style="width:70%" border="1">
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Bio</th>
+        <th>Action</th>
+      </tr>
+
+      <tr th:each="user : ${users}" th:object="${user}">
+        <td th:text="*{id}"></td>
+        <td th:text="*{username}"></td>
+        <td th:text="*{bio}"></td>
+        <td>
+          <a th:href="@{/user/{id}(id=*{id})}" href="">View</a>
+          <a th:href="@{/user/edit/{id}(id=*{id})}" href="">Edit</a>
+          <a th:href="@{/user/delete/{id}(id=*{id})}" href="">Delete</a>
+        </td>
+      </tr>
+
+    </table>
+  </main>
+</body>
+</html>
