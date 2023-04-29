@@ -10,15 +10,29 @@
 <body>
   <main layout:fragment="content">
 
-    <form th:action="${isEdit} ? '/category/edit/' + *{id} : '/category/add' " th:object="${category}" method="post">
-<!--      <label for="id">Id :</label><br>-->
-<!--      <input th:field="*{id}" type="text" id="id"><br>-->
+      <div class="container mt-4 mb-4">
+          <div class="row">
+              <div class="col-4 m-auto">
+                  <form th:action="${isEdit} ? '/category/edit/' + *{id} : '/category/add' " th:object="${category}" method="post">
+                      <!-- Email input -->
+                      <div class="form-outline mb-4">
+                          <input th:field="*{name}" type="text" id="name" class="form-control" />
+                          <label class="form-label" for="name" >Category Name</label>
+                      </div>
 
-      <label for="name">Name :</label><br>
-      <input th:field="*{name}" type="text" id="name"><br>
+                      <!-- Submit button -->
+                      <button type="submit" class="btn btn-primary btn-block">Add Category</button>
+                  </form>
+              </div>
+          </div>
+      </div>
+<!--      -->
 
-      <input type="submit" value="Submit">
-      </form>
+<!--      -->
+
+
+
+
   </main>
 </body>
 </html>

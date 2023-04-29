@@ -11,15 +11,28 @@
 
   <main layout:fragment="content">
 
-    <form th:action="${isEdit} ? '/user/edit/' + *{id} : '/user/add' " th:object="${user}" method="post">
-      <label for="username">Username :</label><br>
-      <input th:field="*{username}" type="text" id="username"><br>
 
-      <label for="name">Bio :</label><br>
-      <input th:field="*{bio}" type="text" id="name"><br>
+    <div class="container mt-4 mb-4">
+      <div class="row">
+        <div class="col-4 m-auto">
+          <form th:action="${isEdit} ? '/user/edit/' + *{id} : '/user/add' " th:object="${user}" method="post">
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+              <input th:field="*{username}" type="text" class="form-control" />
+              <label class="form-label" >Username</label>
+            </div>
 
-      <input type="submit" value="Submit">
-    </form>
+            <div class="form-outline mb-4">
+              <input th:field="*{bio}" type="text" class="form-control" />
+              <label class="form-label" >Bio</label>
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-block">Add Category</button>
+          </form>
+        </div>
+      </div>
+    </div>
 
   </main>
 

@@ -9,60 +9,46 @@
 </head>
 <body>
 
-    <main layout:fragment="content">
-        <div>
-            <a th:href="@{/category/add}">
-                Add New Category
-            </a>
-        </div>
+<main layout:fragment="content">
 
+    <div class="container mt-4 mb-4">
+        <div class="row">
 
-        <main>
-            <div class="container mt-4 mb-4">
-                <div class="row">
-
-                    <div class="col-xl-6 m-auto " >
-                        <div class="card mb-4" th:each="category : ${categories}" th:object="${category}">
-                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                                <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/111.webp" class="img-fluid"/>
-                                <a href="#!">
-                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                                </a>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title" th:text="*{name}">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#!" class="btn btn-primary">Button</a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+            <div class="mb-4">
+                <a class="btn btn-primary" th:href="@{/category/add}">
+                    Add New Category
+                </a>
             </div>
 
-            <table style="width:50%" border="1" class="m-auto mb-4">
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Action</th>
+            <table class="table table-bordered" >
+                <thead>
+                <tr class="text-center">
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Handle</th>
                 </tr>
+                </thead>
 
+                <tbody>
                 <tr th:each="category : ${categories}" th:object="${category}">
-                    <td th:text="*{id}"></td>
+                    <th scope="row" th:text="*{id}"></th>
                     <td th:text="*{name}"></td>
-                    <td>
-                        <a th:href="@{/category/{id}(id=*{id})}" href="">View</a>
-                        <a th:href="@{/category/edit/{id}(id=*{id})}" href="">Edit</a>
-                        <a th:href="@{/category/delete/{id}(id=*{id})}" href="">Delete</a>
+                    <td class="text-center">
+                        <a class="btn btn-info" th:href="@{/category/{id}(id=*{id})}" href="">View</a>
+                        <a class="btn btn-warning" th:href="@{/category/edit/{id}(id=*{id})}" href="">Edit</a>
+                        <a class="btn btn-danger" th:href="@{/category/delete/{id}(id=*{id})}" href="">Delete</a>
                     </td>
                 </tr>
 
+
+                </tbody>
             </table>
-        </main>
-
-    </main>
 
 
+        </div>
+    </div>
+
+</main>
 
 
 </body>
